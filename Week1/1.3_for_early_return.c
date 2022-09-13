@@ -29,11 +29,27 @@ int main() {
 // 1 - COMP1511 C Style
 
 bool isSorted(int *a, int n) {
-
+	int i = 1;
+	bool is_sorted = true;
+	while (i < n) {
+		if (a[i - 1] > a[i]) {
+			is_sorted = false;
+		}
+		i++;
+	}
+	return is_sorted;
 }
 
 // 2 - For loop version
 
-bool isSorted(int *a, int n) {
+a = [2, 1, 3, 4, 5, 6, 7, 8, 9, ...]
 
+bool isSorted(int *a, int n) {
+	bool is_sorted = true;
+	for (int i = 0; i < n; i++) {
+		if (a[i - 1] > a[i]) {
+			return false;
+		}
+	}
+	return true;
 }
