@@ -25,9 +25,9 @@ int main() {
 	Node *d = malloc(sizeof (Node));
 
 	*a = (Node) {1, b};
-	*b = (Node) {1, c};
-	*c = (Node) {1, d};
-	*d = (Node) {1, NULL};
+	*b = (Node) {2, c};
+	*c = (Node) {3, d};
+	*d = (Node) {4, NULL};
 
 	// Print the sum
 	int sum = list_sum(a);
@@ -35,11 +35,21 @@ int main() {
 }
 
 // While loop version
-int list_sum(List l) {
-	
-}
+// int list_sum(List l) {
+// 	int sum = 0;
+// 	List curr = l;
+// 	while (curr != NULL) {
+// 		sum += curr->value;
+// 		curr = curr->next;
+// 	}
+// 	return sum;
+// }
 
 // For loop version
 int list_sum(List l) {
-	
+	int sum = 0;
+	for (List curr = l; curr != NULL; curr = curr->next) {
+		sum += curr->value;
+	}
+	return sum;
 }
