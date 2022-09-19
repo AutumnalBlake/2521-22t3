@@ -7,25 +7,21 @@ typedef struct node {
 } Node;
 
 typedef Node *List;
+
 List list_from_args(int argc, char *argv[]);
+void list_print(List l);
 
-
-void list_print(List l) {
-	for (List curr = l; curr != NULL; curr = curr->next) {
-		printf("%d -> ", curr->data);
-	}
-	printf("X\n");
-}
 
 int main(int argc, char *argv[]) {
 	List l = list_from_args(argc, argv);
-
 	list_print(l);
 }
 
+// HELPERS
 // Create linked list from args
 List list_from_args(int argc, char *argv[]) {
 	if (argc == 1) return NULL;
+	
 	List l = malloc(sizeof (struct node));
 	l->data = atoi(argv[1]);
 	List curr = l;
@@ -35,4 +31,12 @@ List list_from_args(int argc, char *argv[]) {
 		curr->next->next = NULL;
 	}
 	return l;
+}
+
+// Print a linked list
+void list_print(List l) {
+	for (List curr = l; curr != NULL; curr = curr->next) {
+		printf("[%d] -> ", curr->data);
+	}
+	printf("X\n");
 }
